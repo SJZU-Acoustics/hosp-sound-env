@@ -13,6 +13,8 @@ R code for reproducing the statistical analyses, figures and tables for the manu
                      "scales", "ggtext", "readxl", "maps"))
   ```
 
+- Typical install time: a few minutes on a normal desktop with binary CRAN packages (longer if compiled from source). No non-standard hardware is required.
+
 ## Data
 
 The analysis reads a single input: the Mendeley Data workbook
@@ -40,7 +42,7 @@ From the repository root:
 Rscript run_all.R
 ```
 
-Outputs are written to:
+The full pipeline runs in about 10 seconds on a normal desktop. Outputs are written to:
 
 - `output/figures/` — Figures 1–5 and Supplementary Figure 1 (PNG, 600 dpi)
 - `output/tables/` — Table 1 and the Supplementary Tables (LaTeX row fragments and CSV)
@@ -55,3 +57,7 @@ Rscript run_all.R 2>&1 | tee output/run_log.txt
 
 - Random-effects pooling uses the DerSimonian–Laird estimator (closed-form, cross-checked against `metafor`); the one-stage hierarchical model uses `lme4`. The world map in Figure 1 uses the public-domain Natural Earth polygons via the `maps` package.
 - `intermediate/` (regenerated analysis tables) and `output/` are produced at run time and are safe to delete.
+
+## License
+
+Code in this repository is released under the MIT License (see `LICENSE`). The input data are archived separately under CC BY 4.0 at Mendeley Data (DOI [10.17632/yc7hrhn4hd.1](https://doi.org/10.17632/yc7hrhn4hd.1)).
